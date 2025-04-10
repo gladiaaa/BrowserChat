@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://localhost:3000');
+const socket = new WebSocket(`ws://${window.location.host}/`);
 const messages = document.getElementById('messages');
 const input = document.getElementById('input');
 const send = document.getElementById('send');
@@ -6,7 +6,6 @@ const send = document.getElementById('send');
 socket.addEventListener('open', () => {
   console.log('Connected to server');
 });
-
 socket.addEventListener('message', event => {
   const message = document.createElement('p');
   message.textContent = 'Server: ' + event.data;

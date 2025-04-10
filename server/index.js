@@ -3,7 +3,7 @@ const WebSocketServer = require('ws').Server;
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('BrowserQuest Server');
+  res.end('BrowserQuest Server\n');
 });
 
 const wss = new WebSocketServer({ server });
@@ -22,7 +22,7 @@ wss.on('connection', ws => {
   });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Utilise la variable d'environnement ou 3000 par défaut
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
